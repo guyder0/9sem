@@ -4,4 +4,7 @@ version = "0.1.0"
 description = "Utilities for data analysis"
 readme = "README.md"
 requires-python = ">=3.12, <3.13"
-dependencies = []
+dependencies = [
+    "typer>=0.27.2",
+    "typing>=3.10.0.0",
+]

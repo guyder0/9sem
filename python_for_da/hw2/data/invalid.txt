@@ -1,0 +1,46 @@
+2026-09-18T16:13:02Z ERROR service=parser message="Opening quote exists but the closing quote is deliberately missing so a robust parser needs an error strategy instead of consuming every following token user=alice status=broken
+
+2026-09-18T16:13:05Z ERROR service=parser message="This field closes too early" and_this_text_is_not_key_value user=alice status=broken unexpected words appear here
+
+2026-09-18T16:13:08Z ERROR service=parser message="Mismatched quote begins with a double quote but ends using a single quote' user=bob status=broken
+
+2026-09-18T16:13:17Z ERROR service=parser message="String contains an invalid-looking escape sequence such as \q \z \8 and \hello that should not silently disappear during parsing" test=escapes
+
+continuation="This physical line begins without a timestamp and could either be considered a continuation of the previous record or an independent malformed event depending on parser policy"
+
+another continuation line containing arbitrary words, spaces, punctuation, commas, = signs, and "quotes" without any obvious structure
+
+Traceback (most recent call last):
+
+  File "/srv/application/api/request_handler.py", line 284, in process_request
+
+    customer = customer_repository.find_by_external_id(payload["customer"]["external_id"])
+
+  File "/srv/application/database/customer_repository.py", line 119, in find_by_external_id
+
+    return cursor.execute(query, params).fetchone()
+
+sqlite3.OperationalError: database is locked while another transaction is currently writing to the same table
+
+NOT_A_TIMESTAMP ERROR service=unknown message="This record begins with arbitrary text where a timestamp would normally appear, but the remaining fields still resemble a legitimate structured application log event" user=alice
+
+???????????????? INFO service=unknown message="Timestamp field is entirely composed of question marks, which should trigger format detection failure rather than being interpreted as an ordinary timestamp"
+
+Sep 18 16:14:10 server-prod-17 service[18482]: INFO request completed for user=alice after processing a comparatively long syslog-style message containing several tokens and embedded key=value fragments
+
+[18/Sep/2026:16:14:13 +0200] INFO service=legacy user=bob message="Timestamp resembles a web server access log date rather than the ISO timestamps used by most other application records"
+
+INFO 2026-09-18T16:14:16Z service=reordered message="Log level appears before the timestamp instead of after it, deliberately violating the most common field ordering used by this dataset"
+
+service=reordered message="Timestamp appears at the end of the event rather than the beginning, forcing format detection to inspect the entire input record" level=WARNING timestamp=2026-09-18T16:14:19Z
+
+2026-09-18T16:14:22Z|INFO|api|request_id=req_9181|message="Pipe-delimited record mixes positional columns with key-value metadata and contains a long quoted message that itself could theoretically include | pipe characters"
+
+2026-09-18T16:14:25Z;WARNING;database;host=db03;message="Semicolon-delimited record demonstrates another superficially similar but incompatible format; query contains value='active'; sort='desc'; limit=100"
+
+2026-09-18T16:14:28Z,ERROR,worker,task_91882,"CSV-style record where the final field contains commas, quoted phrases such as ""retry later"", and several punctuation characters that should remain part of one column"
+
+[2026-09-18T16:14:31Z] [INFO] [service=api] [request_id=req_55192] message="Bracket-heavy formatting introduces another grammar that may require a dedicated parser rather than increasingly complicated regular expressions"
+
+<2026-09-18T16:14:34Z> <ERROR> <database> host="db-primary" message="Angle-bracket formatting is uncommon but deliberately included to make automatic format classification slightly less trivial"
+
