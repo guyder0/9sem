@@ -1,0 +1,304 @@
+{
+  "view": {
+    "type": "view.list",
+    "items": [
+      {
+        "type": "layout.columns",
+        "verticalAlign": "middle",
+        "ratio":[1, 1],
+        "minWidth": 500,
+        "items": [
+          {
+              "type": "view.image",
+              "ratio": [
+                1,
+                1
+              ],
+              "rotatable": true,
+              "url": {
+                "type": "data.input",
+                "path": "image"
+              }
+          },
+          {
+              "type": "field.radio-group",
+              "label": "Какая комната на изображении?",
+              "options": [
+                {
+                  "label": "кухня / столовая",
+                  "value": "0"
+                },
+                {
+                  "label": "кухня-гостиная",
+                  "value": "1"
+                },
+                {
+                  "label": "универсальная комната",
+                  "value": "2"
+                },
+                {
+                  "label": "комната без мебели",
+                  "value": "19"
+                },
+                {
+                  "label": "гостиная",
+                  "value": "3"
+                },
+                {
+                  "label": "спальня",
+                  "value": "4"
+                },
+                {
+                  "label": "кабинет",
+                  "value": "5"
+                },
+                {
+                  "label": "детская",
+                  "value": "6"
+                },
+                {
+                  "label": "ванная комната",
+                  "value": "7"
+                },
+                {
+                  "label": "туалет",
+                  "value": "8"
+                },
+                {
+                  "label": "совмещенный санузел",
+                  "value": "9"
+                },
+                {
+                  "label": "коридор / прихожая",
+                  "value": "10"
+                },
+                {
+                  "label": "гардеробная / кладовая / постирочная",
+                  "value": "11"
+                },
+                {
+                  "label": "балкон / лоджия",
+                  "value": "12"
+                },
+                {
+                  "label": "вид из окна / с балкона",
+                  "value": "13"
+                },
+                {
+                  "label": "дом снаружи / двор",
+                  "value": "14"
+                },
+                {
+                  "label": "подъезд / лестничная площадка",
+                  "value": "15"
+                },
+                {
+                  "label": "другое",
+                  "value": "16"
+                },
+                {
+                  "label": "предметы интерьера / быт.техника",
+                  "value": "17"
+                },
+                {
+                  "label": "не могу дать ответ / не ясно",
+                  "value": "18"
+                },
+                {
+                  "label": "ошибка загрузки изображения",
+                  "value": "-1"
+                }
+              ],
+              "data": {
+                "type": "data.output",
+                "path": "result"
+              },
+              "validation": {
+                "type": "condition.required"
+              }
+          }
+        ]
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "type": "plugin.toloka",
+      "layout": {
+        "kind": "scroll",
+        "taskWidth": 600
+      }
+    },
+    {
+      "0": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "0"
+      },
+      "1": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "1"
+      },
+      "2": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "2"
+      },
+      "3": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "19"
+      },
+      "4": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "3"
+      },
+      "5": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "4"
+      },
+      "6": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "5"
+      },
+      "7": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "6"
+      },
+      "8": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "7"
+      },
+      "9": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "8"
+      },
+      "q": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "9"
+      },
+      "w": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "10"
+      },
+      "e": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "11"
+      },
+      "r": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "12"
+      },
+      "t": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "13"
+      },
+      "a": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "14"
+      },
+      "s": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "15"
+      },
+      "d": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "16"
+      },
+      "f": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "17"
+      },
+      "g": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "18"
+      },
+      "z": {
+        "type": "action.set",
+        "data": {
+          "type": "data.output",
+          "path": "result"
+        },
+        "payload": "-1"
+      },
+      "type": "plugin.hotkeys"
+    }
+  ]
+}
