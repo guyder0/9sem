@@ -1,0 +1,6 @@
+.venv
+.sam_onnx/
+.ipynb_checkpoints
+__pycache__/
+images.jpeg
+0dc9ff026838851e803de7221dd33a6a.jpg
