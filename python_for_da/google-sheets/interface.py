@@ -103,6 +103,8 @@ def fill_sheet(df: pd.DataFrame):
 
 
 def column_sum():
+    global ws
+    ws = sh.get_worksheet_by_id(ws.id)
     ws.add_cols(1)
     col_count = ws.col_count
     row_count = ws.row_count
@@ -114,6 +116,8 @@ def column_sum():
 
 
 def save_column_sum(savepath="column_sum.csv"):
+    global ws
+    ws = sh.get_worksheet_by_id(ws.id)
     row_count = ws.row_count
     col_count = ws.col_count
     data = ws.get(f"{rowcol_to_a1(1, col_count)}:{rowcol_to_a1(row_count, col_count)}")
@@ -122,6 +126,8 @@ def save_column_sum(savepath="column_sum.csv"):
 
 
 def calculate_mean():
+    global ws
+    ws = sh.get_worksheet_by_id(ws.id)
     ws.add_cols(1)
     row_count = ws.row_count
     col_count = ws.col_count
@@ -144,7 +150,7 @@ def calculate_mean():
     )
 
 
-def rename_column(num, new_name):    
+def rename_column(num, new_name):
     ws.update(
         [[new_name]],
         rowcol_to_a1(1, num),
